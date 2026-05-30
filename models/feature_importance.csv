@@ -1,0 +1,48 @@
+Feature,Importance
+num__AvgMonthlySpend,1.1967549434684863
+num__tenure,1.0576500797172426
+cat__Contract_Two year,0.9339370480689271
+cat__InternetService_Fiber optic,0.7078222953538437
+cat__Contract_Month-to-month,0.6816882490276086
+cat__InternetService_DSL,0.6662332044716954
+num__TotalCharges,0.6106500970154622
+num__MonthlyCharges,0.3662782985320022
+cat__OnlineSecurity_No internet service,0.3386815298833226
+cat__TechSupport_No internet service,0.3386815298833226
+cat__DeviceProtection_No internet service,0.3386815298833226
+cat__InternetService_No,0.3386815298833226
+cat__OnlineBackup_No internet service,0.3386815298833226
+cat__StreamingMovies_No internet service,0.3386815298833226
+cat__StreamingTV_No internet service,0.3386815298833226
+cat__MultipleLines_No,0.3359138123644606
+cat__PaperlessBilling_No,0.3185309762235561
+cat__StreamingMovies_Yes,0.2648584359442203
+cat__StreamingTV_Yes,0.24467446702555268
+cat__Dependents_Yes,0.23959020824254823
+num__HasSupport,0.22898649209067787
+cat__StreamingMovies_No,0.22326934506206733
+cat__PaymentMethod_Mailed check,0.20313820234741087
+cat__StreamingTV_No,0.20308537614340658
+cat__PaymentMethod_Credit card (automatic),0.19448720053716184
+cat__PaymentMethod_Electronic check,0.18501303533343202
+cat__PhoneService_Yes,0.18368033916549886
+cat__Partner_No,0.16451651052931432
+cat__gender_Female,0.1572523340240634
+cat__MultipleLines_Yes,0.15223347319894293
+cat__gender_Male,0.13984010497712235
+cat__Partner_Yes,0.13257592847187186
+cat__MultipleLines_No phone service,0.11341209983567314
+cat__PhoneService_No,0.11341209983567314
+cat__TechSupport_Yes,0.10673544236309135
+num__SeniorCitizen,0.0918992242939102
+cat__PaymentMethod_Bank transfer (automatic),0.08448007145004817
+cat__DeviceProtection_Yes,0.08223199277169203
+cat__OnlineSecurity_Yes,0.07800867417866979
+cat__TechSupport_No,0.06514635148095098
+cat__Dependents_No,0.05750223075863178
+cat__Contract_One year,0.044843639959876475
+cat__DeviceProtection_No,0.040642901889545724
+cat__OnlineSecurity_No,0.036419583296531034
+cat__OnlineBackup_No,0.027613773830991135
+cat__PaperlessBilling_Yes,0.02143853722238033
+cat__OnlineBackup_Yes,0.013975317051152188

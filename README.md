@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Telco Customer Churn Prediction
-=======
 # Telco Customer Churn Prediction & Retention Analytics
->>>>>>> e162292 (Added business analytics dashboards and updated README)
 
 ## Overview
 
@@ -21,11 +17,7 @@ The project covers:
 
 ---
 
-<<<<<<< HEAD
-## Project Highlights
-=======
 ## Dataset
->>>>>>> e162292 (Added business analytics dashboards and updated README)
 
 Source: IBM Telco Customer Churn Dataset
 
@@ -77,33 +69,7 @@ Tele Customer Churn/
 
 ---
 
-<<<<<<< HEAD
-##  Dataset
-
-**Source:** IBM Telco Customer Churn Dataset
-
-### Dataset Information
-
-- Total Customers: 7,043
-- Features: 21
-- Target Variable: Churn (Yes/No)
-- Domain: Telecommunications
-
-### Feature Categories
-
-- Customer Demographics
-- Account Information
-- Internet Services
-- Support Services
-- Billing Information
-- Contract Details
-
----
-
-##  Exploratory Data Analysis
-=======
 ## Data Cleaning
->>>>>>> e162292 (Added business analytics dashboards and updated README)
 
 Performed:
 
@@ -115,37 +81,11 @@ Performed:
 
 ---
 
-<<<<<<< HEAD
-## Data Cleaning
-=======
 ## Feature Engineering
->>>>>>> e162292 (Added business analytics dashboards and updated README)
 
 Created the following features:
 
-<<<<<<< HEAD
-- Converted `TotalCharges` to numeric format.
-- Handled missing values using median imputation.
-- Removed unnecessary customer identifiers.
-- Removed duplicate records.
-
-### Dataset Shape
-
-| Stage            | Rows |
-| ---------------- | ---- |
-| Original Dataset | 7043 |
-| After Cleaning   | 7021 |
-
----
-
-## Feature Engineering
-
-### Features Created
-
-#### AvgMonthlySpend
-=======
 ### AvgMonthlySpend
->>>>>>> e162292 (Added business analytics dashboards and updated README)
 
 ```python
 TotalCharges / (tenure + 1)
@@ -177,32 +117,11 @@ Logistic Regression was selected because it achieved the highest ROC-AUC while m
 
 ---
 
-<<<<<<< HEAD
-## Best Model
-=======
 ## Key Churn Drivers
->>>>>>> e162292 (Added business analytics dashboards and updated README)
 
 The most influential features identified by the model include:
 
-<<<<<<< HEAD
-Selected based on:
-
-- Highest ROC-AUC Score
-- Strong overall performance
-- Faster inference
-- Better interpretability
-
----
-
-## Feature Importance
-
-Top churn-driving features identified:
-
-1. Contract Type
-=======
 1. Avg Monthly Spend
->>>>>>> e162292 (Added business analytics dashboards and updated README)
 2. Tenure
 3. Contract Type
 4. Internet Service Type
@@ -214,25 +133,14 @@ Customers with higher spending, shorter tenure, and month-to-month contracts are
 
 ---
 
-<<<<<<< HEAD
-## Streamlit Dashboard
-=======
 ## Revenue Impact Analysis
->>>>>>> e162292 (Added business analytics dashboards and updated README)
 
 ### Monthly Revenue at Risk
 
-<<<<<<< HEAD
-### Home
-=======
 $139,130
->>>>>>> e162292 (Added business analytics dashboards and updated README)
 
 ### Historical Spend of Churned Customers
 
-<<<<<<< HEAD
-### Prediction
-=======
 $2.86 Million
 
 Key Findings:
@@ -289,40 +197,17 @@ The application includes:
 - Executive Dashboard
 
 Features:
->>>>>>> e162292 (Added business analytics dashboards and updated README)
 
 - Real-time churn prediction
 - Customer health score
 - Risk analysis
 - Business recommendations
-<<<<<<< HEAD
-
-### EDA Dashboard
-
-- Churn visualizations
-- Customer behavior insights
-
-### 🏆 Model Performance
-
-- Comparison of all trained models
-- Performance metrics
-
-### Feature Importance
-
-- Top churn drivers
-- Business insights
-
----
-
-## Business Impact
-=======
 - Revenue analytics
 - Customer segmentation insights
 
 ---
 
 ## Screenshots
->>>>>>> e162292 (Added business analytics dashboards and updated README)
 
 ### Prediction Dashboard
 
@@ -340,11 +225,7 @@ Features:
 
 ---
 
-<<<<<<< HEAD
-## Tech Stack
-=======
 ## SQL Analytics
->>>>>>> e162292 (Added business analytics dashboards and updated README)
 
 The project includes SQL-based business analysis queries:
 

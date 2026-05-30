@@ -1,42 +1,74 @@
+<<<<<<< HEAD
 # Telco Customer Churn Prediction
+=======
+# Telco Customer Churn Prediction & Retention Analytics
+>>>>>>> e162292 (Added business analytics dashboards and updated README)
 
-An end-to-end Machine Learning project that predicts whether a telecom customer is likely to churn. The project covers the complete ML lifecycle, including data cleaning, exploratory data analysis (EDA), feature engineering, model training, evaluation, and deployment using Streamlit.
+## Overview
+
+This project is an end-to-end Machine Learning and Business Analytics solution designed to predict customer churn in a telecommunications company and identify key business drivers behind customer attrition.
+
+The project covers:
+
+- Data Cleaning and Preprocessing
+- Exploratory Data Analysis (EDA)
+- Feature Engineering
+- Machine Learning Model Development
+- Customer Segmentation
+- Revenue Impact Analysis
+- Executive Business Dashboard
+- Interactive Streamlit Deployment
 
 ---
 
+<<<<<<< HEAD
 ## Project Highlights
+=======
+## Dataset
+>>>>>>> e162292 (Added business analytics dashboards and updated README)
 
-- Built an end-to-end Customer Churn Prediction system using Machine Learning.
-- Performed data cleaning, exploratory data analysis (EDA), and feature engineering.
-- Compared Logistic Regression, Random Forest, and XGBoost models.
-- Achieved **84.14% ROC-AUC** using Logistic Regression.
-- Developed an interactive Streamlit dashboard with real-time churn prediction, risk analysis, feature importance, and business recommendations.
+Source: IBM Telco Customer Churn Dataset
+
+Dataset Link:
+https://www.kaggle.com/datasets/blastchar/telco-customer-churn
+
+Dataset Summary:
+
+- Customers: 7,043
+- Features: 21
+- Target Variable: Churn (Yes/No)
+- Domain: Telecommunications
 
 ---
 
 ## Project Structure
 
 ```text
-telco-churn/
+Tele Customer Churn/
 │
 ├── data/
 │   └── WA_Fn-UseC_-Telco-Customer-Churn.csv
 │
 ├── models/
-│   ├── logistic_regression.pkl
-│   └── feature_importance.csv
+│   ├── feature_importance.csv
+│   ├── customer_segments.csv
+│   └── customer_segment_churn.csv
 │
 ├── outputs/
 │   └── figures/
-│       ├── churn_distribution.png
-│       ├── contract_vs_churn.png
-│       ├── tenure_vs_churn.png
-│       └── monthlycharges_vs_churn.png
+│
+├── sql/
+│   ├── churn_analysis.sql
+│   ├── revenue_analysis.sql
+│   └── customer_segments.sql
 │
 ├── src/
 │   ├── eda.py
 │   ├── preprocess.py
-│   └── train.py
+│   ├── train.py
+│   ├── revenue_analysis.py
+│   ├── customer_segmentation.py
+│   └── executive_summary.py
 │
 ├── app.py
 ├── requirements.txt
@@ -45,6 +77,7 @@ telco-churn/
 
 ---
 
+<<<<<<< HEAD
 ##  Dataset
 
 **Source:** IBM Telco Customer Churn Dataset
@@ -68,35 +101,29 @@ telco-churn/
 ---
 
 ##  Exploratory Data Analysis
+=======
+## Data Cleaning
+>>>>>>> e162292 (Added business analytics dashboards and updated README)
 
 Performed:
 
-- Dataset shape and structure analysis
-- Missing value detection and treatment
-- Duplicate record removal
-- Target distribution analysis
-- Customer behavior analysis
-
-### Visualizations
-
-- Customer Churn Distribution
-- Contract Type vs Churn
-- Tenure vs Churn
-- Monthly Charges vs Churn
-
-### Key Findings
-
-- Month-to-month customers show significantly higher churn.
-- Customers with low tenure are more likely to churn.
-- Higher monthly charges increase churn probability.
-- Lack of technical support and online security increases churn risk.
+- Converted TotalCharges to numeric format
+- Handled missing values using median imputation
+- Removed duplicate records
+- Removed customerID column
+- Validated data types
 
 ---
 
+<<<<<<< HEAD
 ## Data Cleaning
+=======
+## Feature Engineering
+>>>>>>> e162292 (Added business analytics dashboards and updated README)
 
-### Cleaning Steps
+Created the following features:
 
+<<<<<<< HEAD
 - Converted `TotalCharges` to numeric format.
 - Handled missing values using median imputation.
 - Removed unnecessary customer identifiers.
@@ -116,55 +143,49 @@ Performed:
 ### Features Created
 
 #### AvgMonthlySpend
+=======
+### AvgMonthlySpend
+>>>>>>> e162292 (Added business analytics dashboards and updated README)
 
 ```python
 TotalCharges / (tenure + 1)
 ```
 
-Represents average customer spending behavior.
+Represents customer spending behaviour.
 
-#### HasSupport
+### HasSupport
 
 ```python
 OnlineSecurity OR TechSupport
 ```
 
-Captures whether the customer has support-related services.
+Captures whether the customer uses support-related services.
 
 ---
 
 ## Models Trained
 
-### Logistic Regression
+| Model               | Accuracy | Precision | Recall | F1 Score | ROC-AUC |
+| ------------------- | -------: | --------: | -----: | -------: | ------: |
+| Logistic Regression |   80.21% |    66.43% | 51.08% |   57.75% |  84.14% |
+| Random Forest       |   77.86% |    61.01% | 45.43% |   52.08% |  81.54% |
+| XGBoost             |   80.00% |    65.42% | 51.88% |   57.87% |  83.96% |
 
-- Accuracy: 80.21%
-- Precision: 66.43%
-- Recall: 51.08%
-- F1 Score: 57.75%
-- ROC-AUC: 84.14%
+### Selected Model
 
-### Random Forest
-
-- Accuracy: 77.86%
-- Precision: 61.01%
-- Recall: 45.43%
-- F1 Score: 52.08%
-- ROC-AUC: 81.54%
-
-### XGBoost
-
-- Accuracy: 80.00%
-- Precision: 65.42%
-- Recall: 51.88%
-- F1 Score: 57.87%
-- ROC-AUC: 83.96%
+Logistic Regression was selected because it achieved the highest ROC-AUC while maintaining strong predictive performance and providing greater interpretability for business stakeholders.
 
 ---
 
+<<<<<<< HEAD
 ## Best Model
+=======
+## Key Churn Drivers
+>>>>>>> e162292 (Added business analytics dashboards and updated README)
 
-### Logistic Regression
+The most influential features identified by the model include:
 
+<<<<<<< HEAD
 Selected based on:
 
 - Highest ROC-AUC Score
@@ -179,34 +200,102 @@ Selected based on:
 Top churn-driving features identified:
 
 1. Contract Type
+=======
+1. Avg Monthly Spend
+>>>>>>> e162292 (Added business analytics dashboards and updated README)
 2. Tenure
-3. Monthly Charges
-4. Tech Support
-5. Online Security
-6. Payment Method
+3. Contract Type
+4. Internet Service Type
+5. Monthly Charges
 
-These features play the most significant role in customer churn prediction.
+Business Insight:
+
+Customers with higher spending, shorter tenure, and month-to-month contracts are significantly more likely to churn.
+
+---
+
+<<<<<<< HEAD
+## Streamlit Dashboard
+=======
+## Revenue Impact Analysis
+>>>>>>> e162292 (Added business analytics dashboards and updated README)
+
+### Monthly Revenue at Risk
+
+<<<<<<< HEAD
+### Home
+=======
+$139,130
+>>>>>>> e162292 (Added business analytics dashboards and updated README)
+
+### Historical Spend of Churned Customers
+
+<<<<<<< HEAD
+### Prediction
+=======
+$2.86 Million
+
+Key Findings:
+
+- Month-to-month customers contribute the largest revenue loss.
+- Fiber Optic customers represent the highest-risk service segment.
+- Electronic Check users generate the greatest revenue loss.
+
+---
+
+## Customer Segmentation
+
+Customer Lifetime Value (CLTV) was calculated as:
+
+```python
+CLTV = MonthlyCharges × tenure
+```
+
+### Segment Distribution
+
+| Segment      | Customers | Churn Rate |
+| ------------ | --------: | ---------: |
+| High Value   |     1,761 |     14.48% |
+| Medium Value |     3,524 |     24.32% |
+| Low Value    |     1,758 |     43.06% |
+
+Key Finding:
+
+Low-value customers exhibit nearly three times the churn rate of high-value customers.
+
+---
+
+## Executive Insights
+
+1. Month-to-month contracts drive the majority of churn.
+2. Customers with tenure below 12 months are most vulnerable.
+3. Electronic Check customers contribute the highest revenue loss.
+4. Fiber Optic users represent the largest at-risk customer segment.
+5. Support services improve customer retention.
 
 ---
 
 ## Streamlit Dashboard
 
-The project includes an interactive dashboard with the following pages:
+The application includes:
 
-### Home
+- Home Dashboard
+- Churn Prediction
+- Model Performance
+- EDA Dashboard
+- Feature Importance
+- Revenue Dashboard
+- Customer Segmentation
+- Executive Dashboard
 
-- Project overview
-- Dataset information
-- Model summary
-
-### Prediction
+Features:
+>>>>>>> e162292 (Added business analytics dashboards and updated README)
 
 - Real-time churn prediction
 - Customer health score
-- Risk analysis dashboard
-- Churn probability gauge
-- Risk distribution donut chart
+- Risk analysis
 - Business recommendations
+<<<<<<< HEAD
 
 ### EDA Dashboard
 
@@ -226,44 +315,81 @@ The project includes an interactive dashboard with the following pages:
 ---
 
 ## Business Impact
+=======
+- Revenue analytics
+- Customer segmentation insights
 
-The solution helps telecom companies:
+---
 
-- Identify customers likely to churn.
-- Design targeted retention campaigns.
-- Improve customer satisfaction.
-- Reduce customer acquisition costs.
-- Increase long-term customer retention.
+## Screenshots
+>>>>>>> e162292 (Added business analytics dashboards and updated README)
+
+### Prediction Dashboard
+
+![pdashboard](image.png)
+![prediction page](image-1.png)
+
+### Executive Dashboard
+
+![ex-dashboard](image-2.png)
+
+### Feature Importance Dashboard
+
+![fi_dashbrd](image-3.png)
+![full_fi](image-4.png)
+
+---
+
+<<<<<<< HEAD
+## Tech Stack
+=======
+## SQL Analytics
+>>>>>>> e162292 (Added business analytics dashboards and updated README)
+
+The project includes SQL-based business analysis queries:
+
+- Churn Rate Analysis
+- Revenue-at-Risk Analysis
+- Customer Segmentation Analysis
+
+Files:
+
+```text
+sql/
+├── churn_analysis.sql
+├── revenue_analysis.sql
+└── customer_segments.sql
+```
 
 ---
 
 ## Tech Stack
 
-### Programming
+Programming:
 
 - Python
 
-### Data Analysis
+Data Analysis:
 
 - Pandas
 - NumPy
 
-### Visualization
+Visualization:
 
 - Matplotlib
 - Seaborn
 - Plotly
 
-### Machine Learning
+Machine Learning:
 
 - Scikit-Learn
 - XGBoost
 
-### Deployment
+Deployment:
 
 - Streamlit
 
-### Model Serialization
+Model Serialization:
 
 - Joblib
 
@@ -271,32 +397,33 @@ The solution helps telecom companies:
 
 ## How to Run
 
-### Clone Repository
-
-```bash
-git clone https://github.com/your-username/telco-churn-prediction.git
-cd telco-churn-prediction
-```
-
-### Install Dependencies
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Run EDA
+Generate EDA visualizations:
 
 ```bash
 python src/eda.py
 ```
 
-### Train Models
+Train models:
 
 ```bash
 python src/train.py
 ```
 
-### Launch Dashboard
+Generate business analytics:
+
+```bash
+python src/revenue_analysis.py
+python src/customer_segmentation.py
+python src/executive_summary.py
+```
+
+Launch dashboard:
 
 ```bash
 streamlit run app.py
@@ -322,17 +449,19 @@ joblib
 
 ## Author
 
-**Neha Vijetha Dasari**
+Neha Vijetha Dasari
 
-Graduate, IIT Hyderabad
+Engineering Physics, IIT Hyderabad
 
-### Skills Demonstrated
+## Skills Demonstrated
 
 - Data Cleaning
 - Exploratory Data Analysis
 - Feature Engineering
 - Machine Learning
-- Model Evaluation
+- Customer Segmentation
+- Revenue Analytics
+- SQL Analytics
+- Business Intelligence
 - Data Visualization
-- Streamlit Dashboard Development
-- Business Analytics
+- Streamlit Application Development

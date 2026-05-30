@@ -39,7 +39,16 @@ model = load_model()
 
 page = st.sidebar.selectbox(
     "Navigation",
-    ["Home", "Prediction", "Model Performance", "EDA Dashboard", "Feature Importance"],
+    [
+        "Home",
+        "Prediction",
+        "Model Performance",
+        "EDA Dashboard",
+        "Feature Importance",
+        "Revenue Dashboard",
+        "Customer Segmentation",
+        "Executive Dashboard",
+    ],
 )
 
 
@@ -71,6 +80,13 @@ if page == "Home":
     | **Best model** | Logistic Regression |
     | **Models trained** | Logistic Regression · Random Forest · XGBoost |
     """)
+    st.markdown("""
+### Selected Model
+
+Logistic Regression was chosen because it provides
+strong performance while remaining highly interpretable
+for business stakeholders.
+""")
 
 
 # ════════════════════════════════════════════════════════════════════════════════
@@ -385,7 +401,9 @@ elif page == "Model Performance":
         hide_index=True,
     )
 
-    st.success("🏆 Best model: Logistic Regression")
+    st.success(
+        "🏆 Selected Model: Logistic Regression (chosen for interpretability and comparable performance to XGBoost)"
+    )
 
 
 # ════════════════════════════════════════════════════════════════════════════════
@@ -424,51 +442,173 @@ elif page == "Feature Importance":
     import plotly.express as px
 
     st.title("🔍 Feature Importance")
+    c1, c2, c3 = st.columns(3)
 
-    importance_df = pd.DataFrame(
-        {
-            "Feature": [
-                "Contract",
-                "Tenure",
-                "Monthly Charges",
-                "Tech Support",
-                "Online Security",
-                "Payment Method",
-                "Internet Service",
-                "Paperless Billing",
-            ],
-            "Importance": [0.30, 0.22, 0.15, 0.10, 0.08, 0.06, 0.05, 0.04],
-        }
-    ).sort_values("Importance", ascending=True)
+    with c1:
+        st.metric("Top Driver", "Avg Monthly Spend")
 
+    with c2:
+        st.metric("Customer Risk Factor", "Low Tenure")
+
+    with c3:
+        st.metric("Highest Risk Segment", "Month-to-Month")
+
+    # Load feature importance
+    importance_df = pd.read_csv("models/feature_importance.csv")
+
+    # Clean feature names
+    importance_df["Feature"] = (
+        importance_df["Feature"]
+        .str.replace("num__", "", regex=False)
+        .str.replace("cat__", "", regex=False)
+        .str.replace("AvgMonthlySpend", "Avg Monthly Spend")
+        .str.replace("MonthlyCharges", "Monthly Charges")
+        .str.replace("TotalCharges", "Total Charges")
+        .str.replace("InternetService", "Internet Service")
+        .str.replace("OnlineSecurity", "Online Security")
+        .str.replace("TechSupport", "Tech Support")
+        .str.replace("Contract", "Contract")
+        .str.replace("_", " ")
+    )
+
+    # Top 10 features
+    importance_df = importance_df.sort_values("Importance", ascending=False).head(10)
+
+    # Top Driver Cards
+    st.subheader("🏆 Top Churn Drivers")
+
+    c1, c2, c3, c4, c5 = st.columns(5)
+
+    top5 = importance_df.head(5)
+
+    cards = [c1, c2, c3, c4, c5]
+
+    for col, (_, row) in zip(cards, top5.iterrows()):
+        with col:
+            st.metric(row["Feature"], f"{row['Importance']:.2f}")
+
+    # Feature Importance Chart
     fig = px.bar(
-        importance_df,
+        importance_df.sort_values("Importance"),
         x="Importance",
         y="Feature",
         orientation="h",
-        title="Top drivers of customer churn",
+        title="Top Drivers of Customer Churn",
         color="Importance",
         color_continuous_scale=["#22c55e", "#f59e0b", "#ef4444"],
     )
 
     fig.update_layout(
-        height=400,
+        height=700,
         coloraxis_showscale=False,
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
         font_color="white",
         margin=dict(l=10, r=10, t=40, b=10),
+        yaxis=dict(categoryorder="total ascending", automargin=True),
     )
 
     st.plotly_chart(fig, use_container_width=True)
 
     st.markdown("---")
-    st.markdown("""
-| Driver | Insight |
-|---|---|
-| **Contract** | Month-to-month customers churn significantly more |
-| **Tenure** | First 12 months are the highest risk window |
-| **Monthly charges** | Higher bills correlate with increased churn |
-| **Tech support** | Absence of support doubles churn likelihood |
-| **Online security** | Unprotected customers feel less locked in |
-""")
+
+    st.subheader("📌 Key Findings")
+
+    st.success("""
+    🔹 Customer spending behaviour is the strongest predictor of churn.
+
+    🔹 New customers (low tenure) are significantly more likely to leave.
+
+    🔹 Contract type strongly influences retention.
+
+    🔹 Fiber Optic users show elevated churn behaviour.
+
+    🔹 Support-related services improve retention.
+    """)
+
+    st.markdown("### 🎯 Business Recommendation")
+
+    st.warning(
+        "Focus retention campaigns on low-tenure, high-spending customers "
+        "with month-to-month contracts to maximize revenue retention."
+    )
+
+    with st.expander("📋 View Full Feature Importance Table"):
+        st.dataframe(importance_df, use_container_width=True, hide_index=True)
+
+elif page == "Revenue Dashboard":
+
+    st.title("💰 Revenue Dashboard")
+
+    c1, c2 = st.columns(2)
+
+    with c1:
+        st.metric("Revenue At Risk", "$2.86M")
+
+    with c2:
+        st.metric("Monthly Revenue Loss", "$139K")
+
+    st.markdown("### Revenue Loss Drivers")
+
+    st.info("📄 Highest Risk Contract: Month-to-Month")
+    st.info("🌐 Highest Risk Internet Service: Fiber Optic")
+    st.info("💳 Highest Risk Payment Method: Electronic Check")
+elif page == "Customer Segmentation":
+
+    st.title("👥 Customer Segmentation")
+
+    segment_df = pd.read_csv("models/customer_segments.csv")
+
+    st.dataframe(segment_df, use_container_width=True)
+
+    import plotly.express as px
+
+    fig = px.bar(
+        segment_df,
+        x="Segment",
+        y="Churn Rate",
+        title="Churn Rate by Customer Segment",
+    )
+
+    st.plotly_chart(fig, use_container_width=True)
+
+elif page == "Executive Dashboard":
+
+    st.title("📈 Executive Dashboard")
+
+    c1, c2, c3, c4 = st.columns(4)
+
+    with c1:
+        st.metric("Total Customers", "7,043")
+
+    with c2:
+        st.metric("Churn Rate", "26.54%")
+
+    with c3:
+        st.metric("Monthly Revenue At Risk", "$139K")
+
+    with c4:
+        st.metric("High Risk Segment", "Month-to-Month")
+    st.markdown("---")
+
+    st.subheader("🔍 Executive Insights")
+    import plotly.express as px
+
+    funnel_df = pd.DataFrame(
+        {
+            "Stage": ["Total Customers", "At Risk", "Likely Churn"],
+            "Customers": [7043, 1869, 1200],
+        }
+    )
+
+    fig = px.funnel(funnel_df, x="Customers", y="Stage")
+
+    st.plotly_chart(fig, use_container_width=True)
+
+    st.success("Month-to-Month contracts drive most churn.")
+
+    st.warning("Low-tenure customers are at highest risk.")
+
+    st.info("Electronic check users contribute most revenue loss.")
+
+    st.info("Fiber Optic customers represent the largest revenue-at-risk segment.")

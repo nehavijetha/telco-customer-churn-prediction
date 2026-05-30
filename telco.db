@@ -1,0 +1,19 @@
+# src/load_to_sqlite.py
+
+import pandas as pd
+import sqlite3
+
+df = pd.read_csv("data/WA_Fn-UseC_-Telco-Customer-Churn.csv")
+
+conn = sqlite3.connect("telco.db")
+
+df.to_sql(
+    "telco",
+    conn,
+    if_exists="replace",
+    index=False
+)
+
+conn.close()
+
+print("Database created successfully!")

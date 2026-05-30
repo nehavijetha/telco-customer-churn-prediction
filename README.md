@@ -1,10 +1,10 @@
-# 📊 Telco Customer Churn Prediction
+# Telco Customer Churn Prediction
 
 An end-to-end Machine Learning project that predicts whether a telecom customer is likely to churn. The project covers the complete ML lifecycle, including data cleaning, exploratory data analysis (EDA), feature engineering, model training, evaluation, and deployment using Streamlit.
 
 ---
 
-## 🌟 Project Highlights
+## Project Highlights
 
 - Built an end-to-end Customer Churn Prediction system using Machine Learning.
 - Performed data cleaning, exploratory data analysis (EDA), and feature engineering.
@@ -14,7 +14,7 @@ An end-to-end Machine Learning project that predicts whether a telecom customer 
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 telco-churn/
@@ -45,7 +45,7 @@ telco-churn/
 
 ---
 
-## 📦 Dataset
+##  Dataset
 
 **Source:** IBM Telco Customer Churn Dataset
 
@@ -67,7 +67,7 @@ telco-churn/
 
 ---
 
-## 🔍 Exploratory Data Analysis
+##  Exploratory Data Analysis
 
 Performed:
 
@@ -93,7 +93,7 @@ Performed:
 
 ---
 
-## 🧹 Data Cleaning
+## Data Cleaning
 
 ### Cleaning Steps
 
@@ -111,7 +111,7 @@ Performed:
 
 ---
 
-## ⚙️ Feature Engineering
+## Feature Engineering
 
 ### Features Created
 
@@ -133,7 +133,7 @@ Captures whether the customer has support-related services.
 
 ---
 
-## 🤖 Models Trained
+## Models Trained
 
 ### Logistic Regression
 
@@ -161,7 +161,7 @@ Captures whether the customer has support-related services.
 
 ---
 
-## 🏆 Best Model
+## Best Model
 
 ### Logistic Regression
 
@@ -174,7 +174,7 @@ Selected based on:
 
 ---
 
-## 🔍 Feature Importance
+## Feature Importance
 
 Top churn-driving features identified:
 
@@ -189,17 +189,17 @@ These features play the most significant role in customer churn prediction.
 
 ---
 
-## 🖥️ Streamlit Dashboard
+## Streamlit Dashboard
 
 The project includes an interactive dashboard with the following pages:
 
-### 🏠 Home
+### Home
 
 - Project overview
 - Dataset information
 - Model summary
 
-### 🤖 Prediction
+### Prediction
 
 - Real-time churn prediction
 - Customer health score
@@ -208,7 +208,7 @@ The project includes an interactive dashboard with the following pages:
 - Risk distribution donut chart
 - Business recommendations
 
-### 📈 EDA Dashboard
+### EDA Dashboard
 
 - Churn visualizations
 - Customer behavior insights
@@ -218,14 +218,14 @@ The project includes an interactive dashboard with the following pages:
 - Comparison of all trained models
 - Performance metrics
 
-### 🔍 Feature Importance
+### Feature Importance
 
 - Top churn drivers
 - Business insights
 
 ---
 
-## 💡 Business Impact
+## Business Impact
 
 The solution helps telecom companies:
 
@@ -237,7 +237,7 @@ The solution helps telecom companies:
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Programming
 
@@ -269,7 +269,7 @@ The solution helps telecom companies:
 
 ---
 
-## ▶️ How to Run
+## How to Run
 
 ### Clone Repository
 
@@ -304,7 +304,7 @@ streamlit run app.py
 
 ---
 
-## 📋 Requirements
+## Requirements
 
 ```text
 pandas
@@ -320,7 +320,7 @@ joblib
 
 ---
 
-## 👩‍💻 Author
+## Author
 
 **Neha Vijetha Dasari**
 

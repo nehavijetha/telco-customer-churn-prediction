@@ -1,4 +1,4 @@
-# Telco Customer Churn Prediction & Retention Analytics
+# Customer Churn Prediction & Retention Analytics Platform
 
 ## Overview
 
